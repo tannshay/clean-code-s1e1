@@ -17,6 +17,7 @@ var createNewTaskElement=function(taskString){
     label.className="task-label task";
 
     checkBox.type="checkbox";
+    checkBox.className="checkbox"
 
     editInput.type="text";
     editInput.className="task-input";
@@ -88,6 +89,8 @@ var taskCompleted=function(){
     console.log("Complete Task...");
 
     var listItem=this.parentNode;
+    var label=listItem.querySelector(".task");
+    label.className="task task-label completed-task"
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
@@ -98,6 +101,8 @@ var taskIncomplete=function(){
     console.log("Incomplete Task...");
 
     var listItem=this.parentNode;
+    var label=listItem.querySelector(".task");
+    label.className="task-label task"
     incompleteTaskHolder.appendChild(listItem);
     bindTaskEvents(listItem,taskCompleted);
 }
